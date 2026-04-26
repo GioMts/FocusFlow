@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FocusFlow Basic</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="main-wrapper">
+        <h1>FocusFlow</h1>
+        <h2>Struggling to focus while coding? FocusFlow is the solution!</h2>
+
+        <div class="dashboard-grid">
+            <div class="left-side">
+                <div class="card timer-card">
+                    <div id="timer-display">25:00</div>
+                    <div class="controls">
+                        <div class="mode-toggles" style="margin-bottom: 15px;">
+                            <button onclick="setTimer(25)">Work</button>
+                            <button onclick="setTimer(5)">Short Break</button>
+                            <button onclick="setTimer(15)">Long Break</button>
+                        </div>
+                        <hr style="border: 0.5px solid #333; margin-bottom: 15px;">
+                        <button id="start-btn">Start</button>
+                        <button id="pause-btn">Pause</button>
+                        <button id="reset-btn">Reset</button>
+                    </div>
+                </div>
+
+                <div class="card task-card">
+                    <h3>Tasks</h3>
+                    <div class="input-group">
+                        <input type="text" id="task-input" placeholder="What needs to be done?" autocomplete="off">
+                        <button id="add-task-btn">Add Task</button>
+                    </div>
+                    <ul id="task-list"></ul>
+                </div>
+            </div>
+
+            <div class="right-side">
+                <div class="card sound-card">
+                    <h3>Ambient Sounds</h3>
+                    <div class="sound-grid">
+                        <div class="sound-item">
+                            <button onclick="toggleSound('rain')">🌧️ Rain</button>
+                            <input type="range" min="0" max="1" step="0.1" value="0.5"
+                                oninput="changeVolume('rain', this.value)">
+                        </div>
+                        <div class="sound-item">
+                            <button onclick="toggleSound('cafe')">☕ Cafe</button>
+                            <input type="range" min="0" max="1" step="0.1" value="0.5"
+                                oninput="changeVolume('cafe', this.value)">
+                        </div>
+                        <div class="sound-item">
+                            <button onclick="toggleSound('waves')">🌊 Waves</button>
+                            <input type="range" min="0" max="1" step="0.1" value="0.5"
+                                oninput="changeVolume('waves', this.value)">
+                        </div>
+                        <div class="sound-item">
+                            <button onclick="toggleSound('fire')">🔥 Fire</button>
+                            <input type="range" min="0" max="1" step="0.1" value="0.5"
+                                oninput="changeVolume('fire', this.value)">
+                        </div>
+                    </div>
+                </div>
+                <div class="card progress-card">
+                    <h3 class="progress-text">Goal Progress</h3>
+                    <div class="progress-container">
+                        <div id="progress-bar"></div>
+                    </div>
+                    <p id="progress-text">0% Completed</p>
+                </div>
+            </div>
+
+            <div class="bottom-row">
+                <div class="card quote-card highlight">
+                    <h2>Focus Fuel</h2>
+                    <p id="quote-text">"Your work is going to fill a large part of your life..."</p>
+                    <small id="quote-author">- Steve Jobs</small>
+                    <br>
+                    <button id="quote-btn">Get New Inspiration</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
