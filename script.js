@@ -116,7 +116,13 @@ function toggleSound(type) {
     const audio = sounds[type];
     const btn = event.currentTarget;
     audio.loop = true;
+
     if (audio.paused) {
+        // Check if this is the waves file and it's currently at the start
+        if (type === 'waves' && audio.currentTime === 0) {
+            audio.currentTime = 2; // Jump to 2 seconds
+        }
+        
         audio.play();
         btn.classList.add('sound-active');
     } else {
